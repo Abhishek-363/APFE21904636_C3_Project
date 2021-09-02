@@ -87,7 +87,34 @@ class RestaurantTest {
                 ()->restaurant.removeFromMenu("French fries"));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    //<<<<<<<<<<<<<<<<<<TDD for new Feature>>>>>>>>>>>>>>>>>>>>>>>>
+    //The module should take item names as parameter
+    //The module should be able to return the total amount for the items
+    //If no item is selected the value should be 0
 
+    @Test
+    public void adding_items_to_list_should_give_correct_total_amount() {
+
+        List<String> itemAdded = new ArrayList<>();
+        itemAdded.add("Sweet corn soup");
+        itemAdded.add("Vegetable lasagne");
+
+        int totalAmount = restaurant.getAmount(itemAdded);
+
+        assertEquals(119+269,totalAmount);
+
+    }
+
+    @Test
+    public void if_no_items_are_added_to_list_it_should_give_0_total_amount() {
+
+        List<String> itemAdded = new ArrayList<>();
+
+        int totalAmount = restaurant.getAmount(itemAdded);
+
+        assertEquals(0,totalAmount);
+
+    }
 
 
 }
